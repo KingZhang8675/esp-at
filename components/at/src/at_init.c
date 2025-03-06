@@ -336,7 +336,7 @@ void esp_at_init(void)
     // register all the at command set
     esp_at_cmd_set_register();
     // register custom command
-    esp_at_custom_cmd_register();
+    //esp_at_custom_cmd_register();
 
 #ifdef CONFIG_BT_ENABLED
     // release possible memory allocated by the bt controller
