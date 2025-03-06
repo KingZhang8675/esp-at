@@ -11,12 +11,12 @@
 #include "esp_at_core.h"
 #include "esp_at.h"
 #include "esp_at_interface.h"
+#include "at_custom_cmd.h"
 
 static const char *TAG = "at-cmd-register";
 
 #ifdef CONFIG_AT_BASE_COMMAND_SUPPORT
 ESP_AT_CMD_SET_FIRST_INIT_FN(esp_at_base_cmd_regist, 1);
-//ESP_AT_CMD_SET_INIT_FN(esp_at_custom_cmd_register, 21);
 #endif
 
 #ifdef CONFIG_AT_WIFI_COMMAND_SUPPORT
