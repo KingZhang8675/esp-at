@@ -94,6 +94,7 @@ ESP_AT_CMD_SET_FIRST_INIT_FN(esp_at_driver_cmd_regist, 19);
 #ifdef CONFIG_AT_ETHERNET_SUPPORT
 ESP_AT_CMD_SET_FIRST_INIT_FN(esp_at_eth_cmd_regist, 20);
 #endif
+
 void esp_at_cmd_set_register(void)
 {
     at_cmd_set_register_t *p;
@@ -101,7 +102,8 @@ void esp_at_cmd_set_register(void)
     // register the at command set which initialized by ESP_AT_CMD_SET_FIRST_INIT_FN
     extern at_cmd_set_register_t _at_cmd_set_first_init_fn_array_start;
     extern at_cmd_set_register_t _at_cmd_set_first_init_fn_array_end;
-    for (p = &_at_cmd_set_first_init_fn_array_start; p < &_at_cmd_set_first_init_fn_array_end; ++p) {
+    for (p = &_at_cmd_set_first_init_fn_array_start; p < &_at_cmd_set_first_init_fn_array_end; ++p) 
+    {
         bool ret = (*(p->fn))();
         if (!ret) {
             ESP_LOGE(TAG, "%s failed", p->name);
@@ -113,7 +115,8 @@ void esp_at_cmd_set_register(void)
     // register the at command set which initialized by ESP_AT_CMD_SET_INIT_FN
     extern at_cmd_set_register_t _at_cmd_set_init_fn_array_start;
     extern at_cmd_set_register_t _at_cmd_set_init_fn_array_end;
-    for (p = &_at_cmd_set_init_fn_array_start; p < &_at_cmd_set_init_fn_array_end; ++p) {
+    for (p = &_at_cmd_set_init_fn_array_start; p < &_at_cmd_set_init_fn_array_end; ++p) 
+    {
         bool ret = (*(p->fn))();
         if (!ret) {
             ESP_LOGE(TAG, "%s failed", p->name);
@@ -125,7 +128,8 @@ void esp_at_cmd_set_register(void)
     // register the at command set which initialized by ESP_AT_CMD_SET_LAST_INIT_FN
     extern at_cmd_set_register_t _at_cmd_set_last_init_fn_array_start;
     extern at_cmd_set_register_t _at_cmd_set_last_init_fn_array_end;
-    for (p = &_at_cmd_set_last_init_fn_array_start; p < &_at_cmd_set_last_init_fn_array_end; ++p) {
+    for (p = &_at_cmd_set_last_init_fn_array_start; p < &_at_cmd_set_last_init_fn_array_end; ++p)
+     {
         bool ret = (*(p->fn))();
         if (!ret) {
             ESP_LOGE(TAG, "%s failed", p->name);

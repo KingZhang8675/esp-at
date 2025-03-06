@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "esp_at.h"
+ESP_AT_CMD_SET_INIT_FN(esp_at_custom_cmd_register, 1);
 
 static uint8_t at_test_cmd_test(uint8_t *cmd_name)
 {
@@ -79,4 +80,4 @@ bool esp_at_custom_cmd_register(void)
     return esp_at_custom_cmd_array_regist(at_custom_cmd, sizeof(at_custom_cmd) / sizeof(esp_at_cmd_struct));
 }
 
-ESP_AT_CMD_SET_INIT_FN(esp_at_custom_cmd_register, 1);
+
